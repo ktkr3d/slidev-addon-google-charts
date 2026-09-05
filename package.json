@@ -12,7 +12,10 @@
     "vue-google-charts": "^1.1.1"
   },
   "peerDependencies": {
-    "slidev": ">=0.40.0",
+    "@slidev/cli": ">=0.40.0",
     "vue": "^3.0.0"
-  }
+  },
+  "workspaces": [
+    "playground"
+  ]
 }

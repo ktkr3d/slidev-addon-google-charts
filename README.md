@@ -36,7 +36,7 @@ You can use the `<GoogleChart />` component in your slides.
 ### Example 1: Timeline Chart (Non-corechart)
 
 ```markdown
-<GoogleChart 
+<GoogleCharts 
   type="Timeline"
   height="250px"
   :data="[
@@ -49,7 +49,7 @@ You can use the `<GoogleChart />` component in your slides.
 ### Example 2: Gauge Chart
 
 ```markdown
-<GoogleChart 
+<GoogleCharts 
   type="Gauge"
   height="200px"
   :data="[

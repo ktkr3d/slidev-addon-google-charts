@@ -30,7 +30,7 @@ layout: default
 
 アドオンの `type="Timeline"` が正しくパッケージを解決して描画できるかテストします。
 
-<GoogleChart 
+<GoogleCharts 
   type="Timeline"
   height="300px"
   :data="[
@@ -51,7 +51,7 @@ layout: default
 <div>
 
 ```markdown
-<GoogleChart 
+<GoogleCharts 
   type="Gauge"
   height="220px"
   :data="[
@@ -69,7 +69,7 @@ layout: default
 </div>
 <div class="flex justify-center items-center">
 
-<GoogleChart 
+<GoogleCharts 
   type="Gauge"
   height="220px"
   :data="[
@@ -93,7 +93,7 @@ layout: default
 
 通常の折れ線グラフ（デフォルトの `corechart` パッケージ）が問題なく動くか確認します。
 
-<GoogleChart 
+<GoogleCharts 
   type="LineChart"
   height="300px"
   :data="[
@@ -106,5 +106,50 @@ layout: default
   :options="{
     curveType: 'function',
     legend: { position: 'bottom' }
+  }"
+/>
+
+---
+
+# 4. GeoChart: Regions Mode (No API Key Required)
+
+国や地域ごとのデータを地図上に色分けして表示するテストです。
+
+<GoogleCharts
+  type="GeoChart"
+  height="300px"
+  :data="[
+    ['Country', 'Popularity'],
+    ['Germany', 200],
+    ['United States', 300],
+    ['Brazil', 400],
+    ['Canada', 500],
+    ['France', 600],
+    ['Japan', 700]
+  ]"
+  :options="{
+    colorAxis: { colors: ['#e5f5e0', '#31a354'] }
+  }"
+/>
+
+---
+
+# 5. GeoChart: Markers Mode (With Lat/Long)
+
+APIキーが必要な「都市名からの自動変換」を避け、**緯度・経度を数値で直接指定**してマーカーをプロットするテストです。
+
+<GoogleCharts
+  type="GeoChart"
+  height="300px"
+  :data="[
+    ['Latitude', 'Longitude', 'City', 'Value'],
+    [35.6762, 139.6503, 'Tokyo', 900],
+    [34.6937, 135.5023, 'Osaka', 500],
+    [40.7128, -74.0060, 'New York', 800],
+    [51.5074, -0.1278, 'London', 600]
+  ]"
+  :options="{
+    displayMode: 'markers',
+    colorAxis: { colors: ['#e0f3f8', '#0571b0'] }
   }"
 />

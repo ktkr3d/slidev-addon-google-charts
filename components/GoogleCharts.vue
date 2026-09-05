@@ -1,45 +1,46 @@
-<!-- components/GoogleCharts.vue -->
-<script setup lang="ts">
-import { GChart } from 'vue-google-charts';
-
-defineProps<{
-  type: string
-  data: any[]
-  options?: object
-}>()
-
-const chartSettings = {
-  packages: [
-    'corechart',
-    'geochart',
-    'gauge',
-    'gantt',
-    'sankey',
-    'timeline',
-    'treemap',
-    'wordtree',
-    'orgchart'
-  ]
-}
-
-const defaultOptions = {
-  width: '100%',
-  height: '350px',
-  backgroundColor: 'transparent',
-  chartArea: { width: '80%', height: '80%' }
-}
-</script>
-
 <template>
-    <div class="my-google-chart">
-        <GChart :type="type" :data="data" :options="{ ...defaultOptions, ...options }" :settings="chartSettings" />
-    </div>
+  <div class="slidev-google-chart-wrapper" :style="{ width: width, height: height }">
+    <GChart
+      :type="type"
+      :data="data"
+      :options="options"
+      :settings="{ packages: chartPackages, language: 'ja' }"
+    />
+  </div>
 </template>
 
+<script setup>
+import { computed } from 'vue'
+import { GChart } from 'vue-google-charts'
+
+const props = defineProps({
+  type: { type: String, required: true },
+  data: { type: Array, required: true },
+  options: { type: Object, default: () => ({}) },
+  width: { type: String, default: '100%' },
+  height: { type: String, default: '400px' }
+})
+
+// 指定されたすべてのパッケージを網羅するように修正
+const chartPackages = computed(() => {
+  const typeLower = props.type.toLowerCase()
+  if (typeLower === 'timeline') return ['timeline']
+  if (typeLower === 'gantt') return ['gantt']
+  if (typeLower === 'orgchart') return ['orgchart']
+  if (typeLower === 'gauge') return ['gauge']
+  if (typeLower === 'treemap') return ['treemap']
+  if (typeLower === 'wordtree') return ['wordtree']
+  if (typeLower === 'geochart') return ['geochart'] // 🟢 追加
+  if (typeLower === 'sankey') return ['sankey']     // 🟢 追加
+  return ['corechart'] // LineChart, BarChart, PieChartなどはここに含まれます
+})
+</script>
+
 <style scoped>
-.my-google-chart {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+.slidev-google-chart-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1rem 0;
 }
 </style>

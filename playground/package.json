@@ -8,7 +8,8 @@
     "export": "slidev export"
   },
   "dependencies": {
-    "slidev": "^0.49.0",
-    "slidev-addon-google-charts": "workspace:*"
+    "@slidev/cli": "^0.49.0",
+    "@slidev/theme-seriph": "^0.25.0",
+    "slidev-addon-google-charts": "file:.."
   }
 }
