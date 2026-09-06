@@ -79,7 +79,7 @@ If you want to clone this repository and modify the addon:
 
 1. Clone this repository
 2. Run `npm install` at the root
-3. Start the playground to test your changes: `npm run dev -w playground`
+3. Start the playground to test your changes: `npx slidev -f ./playground/slides.md`
 
 ## License
 
