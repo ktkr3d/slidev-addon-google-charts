@@ -19,3 +19,7 @@ Thumbs.db
 # ローカル環境の機密情報（もし今後使う場合）
 .env
 .env.local
+
+# その他
+.trash/
+.markdownlint.json
