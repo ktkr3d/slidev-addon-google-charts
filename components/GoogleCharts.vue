@@ -21,18 +21,25 @@ const props = defineProps({
   height: { type: String, default: '400px' }
 })
 
-// 指定されたすべてのパッケージを網羅するように修正
 const chartPackages = computed(() => {
   const typeLower = props.type.toLowerCase()
-  if (typeLower === 'timeline') return ['timeline']
+  if (typeLower === 'annotationchart') return ['annotationchart']
+  if (typeLower === 'bar') return ['bar']
+  if (typeLower === 'charteditor') return ['charteditor']
+  if (typeLower === 'controls') return ['controls']
   if (typeLower === 'gantt') return ['gantt']
-  if (typeLower === 'orgchart') return ['orgchart']
   if (typeLower === 'gauge') return ['gauge']
+  if (typeLower === 'geochart') return ['geochart']
+  if (typeLower === 'line') return ['line']
+  if (typeLower === 'map') return ['map']
+  if (typeLower === 'motionchart') return ['motionchart']
+  if (typeLower === 'orgchart') return ['orgchart']
+  if (typeLower === 'sankey') return ['sankey']
+  if (typeLower === 'table') return ['table']
+  if (typeLower === 'timeline') return ['timeline']
   if (typeLower === 'treemap') return ['treemap']
   if (typeLower === 'wordtree') return ['wordtree']
-  if (typeLower === 'geochart') return ['geochart'] // 🟢 追加
-  if (typeLower === 'sankey') return ['sankey']     // 🟢 追加
-  return ['corechart'] // LineChart, BarChart, PieChartなどはここに含まれます
+  return ['corechart']
 })
 </script>
 
