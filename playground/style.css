@@ -1,0 +1,399 @@
+/* === 最上部に追加：Arch Linux カラーパレットの定義 === */
+:root {
+  --arch-dark-bg: #171a1f;      /* 深いダークネイビー */
+  --arch-cyan: #1793d1;         /* Arch Linuxの公式ロゴブルー */
+  --arch-light-cyan: #53b7ec;   /* アクセント用の明るいブルー */
+  --arch-text: #e6e6e6;         /* 読みやすいオフホワイト */
+  --arch-muted: #7c8f9f;        /* コメントや非アクティブ用のグレー */
+  --arch-code-bg: #21262e;      /* コードブロックの背景 */
+}
+
+/* 全体のベーススタイル */
+.slidev-layout {
+  background-color: var(--arch-dark-bg);
+  color: var(--arch-text);
+  font-family: 'Fira Code', 'JetBrains Mono', 'Courier New', Courier, monospace;
+}
+
+/* サイバーパンク用のカラーとアニメーションを追加 */
+:root {
+  --cyber-pink: #ff007f;
+  --cyber-purple: #9d4edd;
+  --cyber-neon-blue: #00f0ff;
+}
+
+/* サイバーパンク背景（デジタルグリッド） */
+.bg-cyberpunk {
+  background-color: #0b0c10;
+  background-image: 
+    linear-gradient(rgba(23, 147, 209, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(23, 147, 209, 0.05) 1px, transparent 1px);
+  background-size: 20px 20px;
+  position: relative;
+  /* overflow: hidden; */
+}
+
+/* スキャンライン（ブラウン管テレビのような横線） */
+/*
+.bg-cyberpunk::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  z-index: 2;
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
+}
+*/
+
+.text-neon-cyan {
+  color: #ffffff; /* 文字自体は「完全な白」にして視認性を最優先に */
+  /* テキストの周りに、強く濃いシアンの縁取り（アウトライン）を入れて境界線をくっきりさせる */
+  text-shadow: 
+    -1px -1px 0 var(--arch-cyan),  
+     1px -1px 0 var(--arch-cyan),
+    -1px  1px 0 var(--arch-cyan),
+     1px  1px 0 var(--arch-cyan),
+     0 0 10px rgba(23, 147, 209, 0.8); /* ぼやけない程度に外側だけ光らせる */
+  letter-spacing: 0.15em;
+}
+
+.text-neon-pink {
+  color: var(--cyber-pink);
+  text-shadow: 0 0 5px var(--cyber-pink), 0 0 15px var(--cyber-pink);
+}
+
+/* サイバーパンク風の斜めカット枠（背景をより暗く、不透明度をアップ） */
+.cyber-border {
+  border: 2px solid var(--arch-cyan);
+  clip-path: polygon(0 0, 95% 0, 100% 20px, 100% 100%, 5% 100%, 0% calc(100% - 20px));
+  /* 背景を完全な漆黒に近い「#08090c」にし、不透明度を95%に上げて後ろのグリッド線と重ならないように */
+  background: rgba(8, 9, 12, 0.95); 
+  box-shadow: 0 0 25px rgba(23, 147, 209, 0.3), inset 0 0 15px rgba(0, 240, 255, 0.1);
+}
+
+/* 2カラムページのヘッダータイトル用の調整 */
+h2.text-neon-cyan {
+  color: #ffffff;
+  text-shadow: none; /* スライド内側のタイトルは光らせず、ソリッドにして読みやすさを最優先 */
+  border-left: 4px solid var(--arch-cyan);
+  padding-left: 12px;
+}
+
+/* lain風カスタムスタイル */
+.bg-lain {
+  background-color: #050505;
+  /* 有線LANの電柱や砂嵐をイメージした微細な縦ストライプ */
+  background-image: linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px);
+  background-size: 4px 100%;
+}
+
+/* 砂嵐（ノイズ）のような微細なアニメーション効果 */
+@keyframes lain-glitch {
+  0% { opacity: 0.95; transform: skewX(0deg); }
+  5% { opacity: 0.85; transform: skewX(1deg); }
+  10% { opacity: 0.95; transform: skewX(0deg); }
+  100% { opacity: 1; transform: skewX(0deg); }
+}
+
+.lain-text-group {
+  animation: lain-glitch 1s infinite border-box;
+}
+
+/* ナレーションの声が響くようなタイポグラフィ */
+.lain-title {
+  font-family: 'Courier New', Courier, monospace;
+  color: #ffffff;
+  letter-spacing: 0.3em;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.lain-laugh {
+  font-family: 'Courier New', Courier, monospace;
+  color: #555555; /* 闇に溶けるような不気味なグレー */
+  letter-spacing: 0.5em;
+  transition: color 0.5s;
+}
+
+.lain-laugh:hover {
+  color: var(--cyber-pink); /* ホバーするとサイバーパンクの血が通う */
+  text-shadow: 0 0 10px var(--cyber-pink);
+}
+
+/* ターミナル風コードウィンドウのスタイル */
+.cyber-terminal {
+  background: var(--arch-code-bg);
+  border: 1px solid rgba(23, 147, 209, 0.3);
+  border-radius: 6px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  /* overflow: hidden; */
+}
+
+/* ターミナルのヘッダー（3つのボタン） */
+.terminal-header {
+  background: #1c2128;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.terminal-btn {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+.btn-close { background: #ff5f56; }
+.btn-minimize { background: #ffbd2e; }
+.btn-maximize { background: #27c93f; }
+
+.terminal-title {
+  color: var(--arch-muted);
+  font-size: 11px;
+  font-family: monospace;
+  margin-left: 6px;
+}
+
+/* ターミナル内のSlidevコードブロック（余白調整） */
+.cyber-terminal .slidev-code {
+  background: transparent !important;
+  padding: 12px !important;
+  margin: 0 !important;
+}
+
+/* 右カラムのコンテンツ用装飾（ネオン箇条書き） */
+.cyber-list li {
+  position: relative;
+  list-style: none;
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.cyber-list li::before {
+  content: "❯";
+  position: absolute;
+  left: 0;
+  color: var(--cyber-neon-blue);
+  text-shadow: 0 0 5px var(--cyber-neon-blue);
+}
+
+/* --- サイバーパンク風カスタムテーブル --- */
+.cyber-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+  background: rgba(23, 26, 31, 0.6); /* 半透明のダーク背景 */
+  border: 1px solid var(--arch-cyan);
+  box-shadow: 0 0 15px rgba(23, 147, 209, 0.15);
+}
+
+/* ヘッダー行（一番上の見出し） */
+.cyber-table th {
+  background: rgba(23, 147, 209, 0.2); /* Archブルーのシースルー */
+  color: var(--cyber-neon-blue);
+  text-shadow: 0 0 5px var(--cyber-neon-blue);
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 10px 14px;
+  border-bottom: 2px solid var(--arch-cyan);
+  text-align: left;
+}
+
+/* データ行 */
+.cyber-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid rgba(23, 147, 209, 0.2);
+  color: var(--arch-text);
+}
+
+/* 行の偶数・奇数で背景色を互い違いにする（ゼブラ柄） */
+.cyber-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+/* マウスホバーで怪しく光るエフェクト */
+.cyber-table tr:hover td {
+  background: rgba(0, 240, 255, 0.05);
+  color: #ffffff;
+  text-shadow: 0 0 4px rgba(255, 255, 255, 0.5);
+  transition: all 0.2s ease;
+}
+
+/* インラインコード（バッククォート囲み）の視認性を最優先にする修正 */
+:where(.slidev-layout) :not(pre) > code {
+  background-color: #1a1d24 !important; /* 完全に独立した暗いグレー */
+  color: #00f0ff !important;            /* パキッと目立つサイバーネオンブルー */
+  padding: 0.15rem 0.4rem !important;
+  border-radius: 4px !important;
+  border: 1px solid rgba(23, 147, 209, 0.3) !important; /* 薄い青枠 */
+  font-weight: 600 !important;
+}
+
+/* =================================================== */
+/* ⚡ コードブロックを自動的にターミナル化する魔法のCSS */
+/* =================================================== */
+
+/* Slidevが生成するすべてのコードブロックのコンテナ */
+.slidev-layout pre.shiki {
+  position: relative !important;
+  background-color: var(--arch-code-bg) !important;
+  border: 1px solid rgba(23, 147, 209, 0.3) !important;
+  border-radius: 6px !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5) !important;
+  /* 上部にヘッダー分の余白（32px）を空ける */
+  padding-top: 36px !important; 
+  padding-left: 14px !important;
+  padding-right: 14px !important;
+  padding-bottom: 14px !important;
+  /* overflow: hidden !important; */
+}
+
+/* 1. ターミナルのヘッダーバーを自動生成 */
+.slidev-layout pre.shiki::before {
+  content: " ";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background: #1c2128;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  z-index: 1;
+}
+
+/* 2. ターミナルの3つの丸ボタン（赤・黄・緑）を自動生成 */
+.slidev-layout pre.shiki::after {
+  content: " ";
+  position: absolute;
+  top: 9px;
+  left: 12px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  /* 3つのボタンをグラデーション（シャドウ）の連続で疑似的に表現 */
+  background: #ff5f56; 
+  box-shadow: 
+    16px 0 0 #ffbd2e, 
+    32px 0 0 #27c93f; 
+  z-index: 2;
+}
+
+/* コードのテキスト自体がヘッダーと被らないように調整 */
+.slidev-layout pre.shiki code {
+  position: relative;
+  z-index: 3;
+  background: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+}
+
+/* --- 右上の斜めステータスリボン（確定版） --- */
+.cyber-ribbon {
+  position: absolute;
+  top: 18px;     
+  right: -35px;  
+  width: 150px;
+  background: var(--cyber-pink);
+  color: #ffffff;
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 12px;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 4px 0;
+  transform: rotate(45deg);
+  box-shadow: 0 0 15px rgba(255, 0, 127, 0.6);
+  z-index: 999; 
+}
+
+/* テンプレート用のアンバーカラーバリエーション */
+.cyber-ribbon.amber {
+  background: #ffb703;
+  box-shadow: 0 0 15px rgba(255, 183, 3, 0.6);
+}
+
+.point { @apply text-amber-500 font-bold; }
+.alert { @apply text-red-500 font-bold; }
+
+/* =================================================== */
+/* ⚡ サイバーパンク風・カスタムタスクリスト（TODO） */
+/* =================================================== */
+
+/* =================================================== */
+/* ⚡ サイバーパンク風・カスタムタスクリスト（調整版） */
+/* =================================================== */
+
+/* リスト全体の余白をゼロにして左寄せにする */
+.slidev-layout ul.task-list {
+  padding-left: 0 !important;
+  margin-left: 0 !important;
+  list-style: none !important;
+}
+
+/* 各リスト項目の横並び調整（チェックボックスとの距離を狭める） */
+.slidev-layout .task-list-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 16px !important;            /* 💡 ボックスと文字の間の距離（お好みで調整可） */
+  margin-bottom: 12px !important;
+  padding-left: 0 !important;     /* 💡 余計な余白を完全にリセット */
+  list-style-type: none !important;
+  font-family: 'Fira Code', 'JetBrains Mono', monospace;
+  color: var(--arch-text);
+  position: relative;
+}
+
+/* デフォルトのチェックボックス（ブラウザ標準）を完全に非表示 */
+.slidev-layout .task-list-item input[type="checkbox"] {
+  position: absolute !important;
+  opacity: 0 !important;
+  margin: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* 🎨 新しいサイバーチェックボックスの自作外枠（インライン要素として配置） */
+.slidev-layout .task-list-item::before {
+  content: " ";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--arch-muted);
+  border-radius: 3px;
+  transition: all 0.2s ease;
+  box-sizing: border-box;
+  flex-shrink: 0; /* 画面が狭くなってもボックスが潰れないようにする */
+}
+
+/* ⚡ 【チェック済みの状態】枠線をネオンピンクにし、外側を発光させる */
+.slidev-layout .task-list-item:has(input[type="checkbox"]:checked)::before {
+  border-color: var(--cyber-pink);
+  background: rgba(255, 0, 127, 0.1);
+  box-shadow: 0 0 10px rgba(255, 0, 127, 0.6);
+}
+
+/* ⚡ 【チェック済みの状態】中にサイバーな「✔」のレ点を灯す（位置を中央に調整） */
+.slidev-layout .task-list-item:has(input[type="checkbox"]:checked)::after {
+  content: "✓";
+  position: absolute;
+  left: 3px;
+  top: 48%;
+  transform: translateY(-50%);
+  color: var(--cyber-pink);
+  font-size: 13px;
+  font-weight: bold;
+  text-shadow: 0 0 5px var(--cyber-pink);
+}
+
+/* ⚡ 【チェック済みの状態】取り消し線を完全に削除。テキスト色は判別のためにわずかに明るくするのみ */
+.slidev-layout .task-list-item:has(input[type="checkbox"]:checked) {
+  color: #ffffff !important;         /* 💡 取り消し線を消し、白い文字として残す */
+  text-decoration: none !important;  /* 💡 取り消し線を強制無効化 */
+}

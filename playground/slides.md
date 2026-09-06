@@ -1,155 +1,689 @@
 ---
-theme: seriph
-background: https://unsplash.com
+# ==========================================
+# 🔖 THEME : テーマ
+# ==========================================
+theme: default
+background: ''
 class: text-center
-highlighter: shiki
+lineNumbers: true
 drawings:
   persist: false
-transition: slide-left
-mdc: true
-# 開発中のアドオンを指定
+title: Slidev Addon Google Charts
 addons:
   - slidev-addon-google-charts
+
+# ==========================================
+# 📍 COVER : NEO-ARCH SYSTEMS
+# ==========================================
+layout: cyber-cover
+highlighter: shiki
+transition: fade
 ---
 
-# Google Charts Addon Playground
+::command::
+guest@wired.net ~ $ npx slidev ./presentation.md
 
-Welcome to the development & demo slides for `slidev-addon-google-charts`.
+::default::
+SLIDEV ADDON GOOGLE CHARTS
 
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer hover:bg-white hover:bg-opacity-10" style="color: #42b883">
-    Press Space to see charts <carbon:arrow-right class="inline"/>
-  </span>
-</div>
+::subtitle::
+Add interactive Google Charts to your Slidev.
 
 ---
-layout: default
+# ==========================================
+# 📌 SLIDE : 01. Introduction
+# ==========================================
+layout: cyber-one-col
 ---
 
-# 1. Timeline Chart (Non-corechart)
+::header::
+## 01. Introduction
 
-アドオンの `type="Timeline"` が正しくパッケージを解決して描画できるかテストします。
+::default::
+[Slidev](https://sli.dev/)はMarkdownでスライドを作成できる開発者向けのWebベースプレゼンテーションツールです。
 
+- テキストファイルにMarkdown形式で書き込むだけで簡単にスライドを構築できます
+- HTMLやVueコンポーネントを埋め込み、インタラクティブで動きのある表現が可能です
+- 綺麗なコードハイライト、PDFエクスポート、ライブコーディングなどを標準搭載しています
+
+<br>
+
+Slidevで[Google Charts](https://developers.google.com/chart/)を利用するためのアドオン [**<span class="point">slidev-addon-google-charts</span>**](https://github.com/ktkr3d/slidev-addon-google-charts/) を作成しました。
+
+- Google Chartsの様々な種類のチャートに対応しています
+- スライド表示中に対話的な操作が可能です
+- アドオンを`npm install`で導入できます
+
+---
+# ==========================================
+# 📌 SLIDE : 02. CHART TYPE
+# ==========================================
+layout: cyber-two-cols
+ribbon: WIP
+---
+
+::header::
+## 02. CHART TYPE
+
+::left::
+様々なチャートに対応しています。
+
+- [ ] **annotationchart** - 注釈付きタイムライン
+- [ ] **bar** - マテリアルデザイン棒グラフ
+- [ ] **charteditor** - チャートエディタ
+- [ ] **controls** - ダッシュボードコントロール
+- [X] **corechart** - 折れ線・棒・円・散布図など基本グラフ
+- [ ] **gantt** - ガントチャート
+- [X] **gauge** - メーター・ゲージ
+- [X] **geochart** - 国や地域のデータマップ
+- [ ] **line** - マテリアルデザイン折れ線グラフ
+
+::right::
+
+<br>
+
+- [ ] **map** - Google マップ地図表示
+- [ ] **motionchart** - モーションチャート
+- [ ] **orgchart** - 組織図
+- [ ] **sankey** - サンキー・ダイアグラム
+- [X] **table** - データ表
+- [ ] **timeline** - スケジュールタイムライン
+- [ ] **treemap** - ツリーマップ
+- [ ] **wordtree** - テキストワードツリー
+
+---
+# ==========================================
+# 📌 SLIDE : 03. SETUP
+# ==========================================
+layout: cyber-two-cols
+---
+
+::header::
+## 03. SETUP
+
+::left::
+
+1. プロジェクトフォルダを作成します
+
+```bash
+mkdir slidev-workspace
+cd slidev-workspace
+```
+
+2. Slidevを初期化します
+
+```bash
+npm init -y && npm install @slidev/cli
+```
+
+3. アドオンをインストールします
+
+```bash
+npm install -allow-git=root \
+    ktkr3d/slidev-addon-google-charts
+```
+
+::right::
+<br>
+
+<ul class="cyber-list text-lg">
+  <li><strong>slidev-workspace</strong> — プロジェクトフォルダ</li>
+</ul>
+
+<br><br><br>
+
+<ul class="cyber-list text-lg">
+  <li><strong>@slidev/cli</strong> — Slidev パッケージ</li>
+</ul>
+
+<br><br>
+
+<ul class="cyber-list text-lg">
+  <li><strong>slidev-addon-google-charts</strong> — アドオン</li>
+</ul>
+
+---
+# ==========================================
+# 📌 SLIDE : 04. HOW TO USE
+# ==========================================
+layout: cyber-two-cols
+---
+
+::header::
+## 04. HOW TO USE
+
+::left::
+
+使い方
+
+```bash
 <GoogleCharts 
-  type="Timeline"
-  height="300px"
-  :data="[
-    [ { type: 'string', id: 'Position' }, { type: 'string', id: 'Name' }, { type: 'date', id: 'Start' }, { type: 'date', id: 'End' } ],
-    [ 'President', 'George Washington', new Date(1789, 3, 30), new Date(1797, 2, 4) ],
-    [ 'President', 'John Adams', new Date(1797, 2, 4), new Date(1801, 2, 4) ],
-    [ 'President', 'Thomas Jefferson', new Date(1801, 2, 4), new Date(1809, 2, 4) ]
-  ]"
-/>
-
----
-
-# 2. Gauge Chart (Non-corechart)
-
-アドオンの `type="Gauge"` と、`options`（カラーゾーン指定など）のリアクティブな適用をテストします。
-
-<div class="grid grid-cols-2 gap-4">
-<div>
-
-```markdown
-<GoogleCharts 
-  type="Gauge"
-  height="220px"
-  :data="[
-    ['Label', 'Value'],
-    ['Memory', 80],
-    ['CPU', 55]
-  ]"
+  type="GeoChart"
+  width="200%"
   :options="{
-    redFrom: 90, redTo: 100,
-    yellowFrom:75, yellowTo: 90
+    region: 'JP',
+    resolution: 'provinces',
   }"
+  :data="[
+    ['都道府県', '値'],
+    ['北海道', 100]
+  ]"
 />
 ```
 
-</div>
-<div class="flex justify-center items-center">
+::right::
+
+<br>
+
+<ul class="cyber-list text-lg">
+  <li><strong>GoogleCharts</strong> — コンポーネント名</li>
+  <li><strong>type</strong> — チャート種別</li>
+  <li><strong>width</strong> — 幅（デフォルト: 100%）</li>
+  <li><strong>height</strong> — 高さ（デフォルト: 400px）</li>
+  <li><strong>:options</strong> — オプション</li>
+  <li><strong>:data</strong> — データ</li>
+</ul>
+
+---
+# ==========================================
+# 📌 SLIDE : 05. GOOGLE CHARTS - CORECHART
+# ==========================================
+layout: cyber-two-cols
+---
+
+::header::
+## 05. GOOGLE CHARTS - CORECHART
+
+::left::
+
+CoreChart / PieChart 円グラフ
+
+```html
+<GoogleCharts 
+  type="PieChart"
+  height="200px"
+  :options="{
+    title: 'My Daily Activities'
+  }"
+  :data="[
+    ['Task', 'Hours per Day'],
+    ['Work',     11],
+    ['Eat',      2],
+    ['Commute',  2],
+    ['Watch TV', 2],
+    ['Sleep',    7]
+  ]"
+/>
+```
+
+::right::
+
+<br><br>
+
+<GoogleCharts 
+  type="PieChart"
+  height="200px"
+  :options="{
+    title: 'My Daily Activities'
+  }"
+  :data="[
+    ['Task', 'Hours per Day'],
+    ['Work',     11],
+    ['Eat',      2],
+    ['Commute',  2],
+    ['Watch TV', 2],
+    ['Sleep',    7]
+  ]"
+/>
+
+---
+# ==========================================
+# 📌 SLIDE : 06. GOOGLE CHARTS - GAUGE
+# ==========================================
+layout: cyber-two-cols
+---
+
+::header::
+## 06. GOOGLE CHARTS - GAUGE
+
+::left::
+
+Gauge メーター・ゲージ
+
+```bash
+<GoogleCharts 
+  type="Gauge"
+  height="200px"
+  :data="[
+    ['Label', 'Value'],
+    ['CPU', 85]
+  ]"
+/>
+```
+
+::right::
+
+<br>
 
 <GoogleCharts 
   type="Gauge"
-  height="220px"
+  height="200px"
   :data="[
     ['Label', 'Value'],
-    ['Memory', 80],
-    ['CPU', 55]
+    ['CPU', 85]
   ]"
-  :options="{
-    redFrom: 90, redTo: 100,
-    yellowFrom:75, yellowTo: 90,
-    minorTicks: 5
-  }"
 />
 
-</div>
-</div>
-
+---
+# ==========================================
+# 📌 SLIDE : 07. GOOGLE CHARTS - GEOCHART
+# ==========================================
+layout: cyber-two-cols
 ---
 
-# 3. Standard Line Chart (Corechart)
+::header::
+## 07. GOOGLE CHARTS - GEOCHART
 
-通常の折れ線グラフ（デフォルトの `corechart` パッケージ）が問題なく動くか確認します。
+::left::
+
+GeoChart 国や地域のデータマップ
+
+```html
+<GoogleCharts 
+  type="GeoChart"
+  height="200px"
+  :options="{
+    region: 'JP',
+    resolution: 'provinces',
+  }"
+  :data="[
+    ['都道府県', '値'],
+    ['北海道', 100]
+  ]"
+/>
+```
+
+::right::
+
+<div class="w-1/2 mx-auto">
 
 <GoogleCharts 
-  type="LineChart"
-  height="300px"
-  :data="[
-    ['Year', 'Sales', 'Expenses'],
-    ['2023',  1000,      400],
-    ['2024',  1170,      460],
-    ['2025',  660,       1120],
-    ['2026',  1030,      540]
-  ]"
+  type="GeoChart"
+  width="200%"
   :options="{
-    curveType: 'function',
-    legend: { position: 'bottom' }
+    region: 'JP',
+    resolution: 'provinces',
   }"
+  :data="[
+    ['都道府県', '値'],
+    ['北海道', 100]
+  ]"
+/>
+
+</div>
+
+---
+# ==========================================
+# 📌 SLIDE : 08. GOOGLE CHARTS - TABLE
+# ==========================================
+layout: cyber-two-cols
+ribbon: WIP
+---
+
+::header::
+## 08. GOOGLE CHARTS - TABLE
+
+::left::
+
+Table データ表
+
+```html
+<GoogleCharts 
+  type="Table"
+  height="200px"
+  :options="{
+    title: 'My Daily Activities'
+  }"
+  :data="[
+    ['Name',  'Salary', 'Full Time Employee'],
+    ['Mike',  {v: 10000, f: '$10,000'}, true],
+    ['Jim',   {v:8000,   f: '$8,000'},  false],
+    ['Alice', {v: 12500, f: '$12,500'}, true],
+    ['Bob',   {v: 7000,  f: '$7,000'},  true]
+  ]"
+/>
+```
+
+::right::
+
+<GoogleCharts 
+  type="Table"
+  height="200px"
+  :options="{
+    title: 'My Daily Activities'
+  }"
+  :data="[
+    ['Name',  'Salary', 'Full Time Employee'],
+    ['Mike',  {v: 10000, f: '$10,000'}, true],
+    ['Jim',   {v:8000,   f: '$8,000'},  false],
+    ['Alice', {v: 12500, f: '$12,500'}, true],
+    ['Bob',   {v: 7000,  f: '$7,000'},  true]
+  ]"
 />
 
 ---
-
-# 4. GeoChart: Regions Mode (No API Key Required)
-
-国や地域ごとのデータを地図上に色分けして表示するテストです。
-
-<GoogleCharts
-  type="GeoChart"
-  height="300px"
-  :data="[
-    ['Country', 'Popularity'],
-    ['Germany', 200],
-    ['United States', 300],
-    ['Brazil', 400],
-    ['Canada', 500],
-    ['France', 600],
-    ['Japan', 700]
-  ]"
-  :options="{
-    colorAxis: { colors: ['#e5f5e0', '#31a354'] }
-  }"
-/>
-
+# ==========================================
+# 📌 SLIDE : 09. GOOGLE CHARTS - (REST)
+# ==========================================
+layout: cyber-two-cols
+ribbon: WIP
 ---
 
-# 5. GeoChart: Markers Mode (With Lat/Long)
+::header::
+## 09. GOOGLE CHARTS - (UNTESTED)
 
-APIキーが必要な「都市名からの自動変換」を避け、**緯度・経度を数値で直接指定**してマーカーをプロットするテストです。
+::left::
 
-<GoogleCharts
-  type="GeoChart"
-  height="300px"
-  :data="[
-    ['Latitude', 'Longitude', 'City', 'Value'],
-    [35.6762, 139.6503, 'Tokyo', 900],
-    [34.6937, 135.5023, 'Osaka', 500],
-    [40.7128, -74.0060, 'New York', 800],
-    [51.5074, -0.1278, 'London', 600]
-  ]"
-  :options="{
-    displayMode: 'markers',
-    colorAxis: { colors: ['#e0f3f8', '#0571b0'] }
-  }"
-/>
+- annotationchart 注釈付きタイムライン
+- bar マテリアルデザイン棒グラフ
+- charteditor チャートエディタ
+- controls ダッシュボードコントロール
+- gantt ガントチャート
+- line マテリアルデザイン折れ線グラフ
+- map Google マップ地図表示
+
+::right::
+
+- motionchart モーションチャート
+- orgchart 組織図
+- sankey サンキー・ダイアグラム
+- timeline スケジュールタイムライン
+- treemap ツリーマップ
+- wordtree テキストワードツリー
+
+---
+# ==========================================
+# 📍 COVER : NEO-ARCH SYSTEMS
+# ==========================================
+layout: cyber-cover
+highlighter: shiki
+transition: fade
+ribbon: TEMPLATE
+---
+
+::command::
+root@archiso ~ # ./start_presentation
+
+::default::
+# NEO-ARCH SYSTEMS
+
+::subtitle::
+The Minimalist OS Meets Cyberpunk Aesthetic.
+
+---
+# ==========================================
+# 📌 SLIDE : 91. PROFILE
+# ==========================================
+layout: cyber-two-cols
+ribbon: TEMPLATE
+---
+
+::header::
+## 91. PROFILE
+
+::left::
+
+- **NAME** — [ktkr3d](https://github.com/ktkr3d)
+- **OS** — Arch Linux (Hyprland / paru)
+- **SHELL** — fish
+- **KEYBOARD** — us / jp
+- **IDE** - vscode / code-server
+- **LANGUAGE** - C++ / JavaScript / Lua
+- **WIRED** — <span class="text-xs font-thin tracking-widest uppercase text-neutral-500">everyone_can_connect..._but_not_me.err</span>
+
+::right::
+
+<!-- 💡 アバター画像を綺麗に丸で切り抜くコード -->
+<div class="flex flex-col items-center justify-center h-full">
+  <div class="w-40 h-40 rounded-full border-2 border-$arch-cyan p-1 bg-black/40 shadow-[0_0_20px_rgba(23,147,209,0.4)] overflow-hidden aspect-square">
+    <img 
+      src="https://ktkr3d.github.io/images/avatar.png" 
+      class="w-full h-full object-cover rounded-full" 
+      alt="Avatar"
+    />
+  </div>
+  <p class="text-xs font-mono text-neutral-500 mt-3">STATUS: OFFLINE_LOOPBACK</p>
+</div>
+
+---
+# ==========================================
+# 📌 SLIDE : 92. CYBER LAYOUTS
+# ==========================================
+layout: cyber-one-col
+ribbon: TEMPLATE
+---
+
+::header::
+## 92. CYBER LAYOUTS
+
+::default::
+
+| LAYOUT NAME | PURPOSE | PARTITION |
+| :--- | :--- | :--- |
+| `cyber-cover` | 表紙 | - `::command::` <br> - `::default::` <br> - `::subtitle::` |
+| `cyber-one-col` | スライド(1カラム) | - `::header::` <br> - `::default::` |
+| `cyber-two-cols` | スライド(2カラム) | - `::header::` <br> - `::left::` <br> - `::right::`|
+| `lain-end` | クロージング | (なし) |
+
+---
+# ==========================================
+# 📌 SLIDE : 93. FRONT MATTER
+# ==========================================
+layout: cyber-two-cols
+ribbon: TEMPLATE
+---
+
+::header::
+## 93. FRONT MATTER
+
+::left::
+
+表紙
+
+```markdown
+theme: default
+css: ./style.css 
+background: ''
+class: text-center
+lineNumbers: true
+drawings:
+  persist: false
+title: Arch Linux Style Presentation
+addons:
+  - slidev-addon-google-charts
+
+layout: cyber-cover
+highlighter: shiki
+transition: fade
+```
+
+::right::
+
+スライド(1カラム)
+
+```markdown
+layout: cyber-one-col
+```
+
+スライド(2カラム)
+
+```markdown
+layout: cyber-one-col
+```
+
+クロージング
+
+```markdown
+layout: cyber-one-col
+```
+
+---
+# ==========================================
+# 📌 SLIDE : 94. CYBER TABLE
+# ==========================================
+layout: cyber-one-col
+ribbon: TEMPLATE
+---
+
+::header::
+## 94. CYBER TABLE
+
+::default::
+
+<div class="cyber-table">
+
+| MODULE NAME | CORE ARCHITECTURE | INTEGRITY | OPERATIONAL STATUS |
+| :--- | :--- | :--- | :--- |
+| `kernel-hardened` | Linux x86_64 | 100% SECURE | `ACTIVE (BYPASS_MODE)` |
+| `wayland-compositor` | Hyprland / Cyber | 98.4% STABLE | `RENDERING` |
+| `luna-network-daemon` | Protocol-X via Wired | 100% ONLINE | `ENCRYPTED_TUNNEL` |
+
+</div>
+
+---
+# ==========================================
+# 📌 SLIDE : 95. CODEBLOCK
+# ==========================================
+layout: cyber-two-cols
+ribbon: TEMPLATE
+---
+
+::header::
+## 95. CODEBLOCK
+
+::left::
+```bash
+# Arch Linux パッケージマネージャー
+sudo pacman -Syu
+sudo pacman -S neovim tmux zsh
+
+# 特徴的なパッケージの導入
+yay -S slidev-cli-git
+```
+
+::right::
+<ul class="cyber-list text-lg">
+  <li><strong>Pacman Optimization</strong> — ミラーリストを最速に同期。</li>
+  <li><strong>Development Tools</strong> — 開発に必要なミニマル環境をワンコマンドで構築。</li>
+  <li><strong>Bleeding Edge</strong> — 常に最新のソフトウェアをローリングリリース。</li>
+</ul>
+
+<!--
+<div class="mt-6 border border-coolgray-800 rounded p-1 bg-black/40">
+  <img src="https://unsplash.com" class="w-full opacity-80 filter saturate-50 rounded" alt="Cyberpunk Code">
+</div>
+-->
+
+---
+# ==========================================
+# 📌 SLIDE : 96. LIST
+# ==========================================
+layout: cyber-two-cols
+ribbon: TEMPLATE
+---
+
+::header::
+## 96. LIST
+
+::left::
+```bash
+- [X] Closed
+- [ ] Open
+```
+
+::right::
+
+- [X] Closed
+- [ ] Open
+
+---
+# ==========================================
+# 📌 SLIDE : 97. RIBBON / FOOTER
+# ==========================================
+layout: cyber-two-cols
+ribbon: TEMPLATE
+---
+
+::header::
+## 97. RIBBON / FOOTER
+
+::left::
+### RIBBON
+
+- TEMPLATE
+
+```bash
+---
+ribbon: TEMPLATE
+---
+```
+
+- WIP
+```bash
+---
+ribbon: WIP
+---
+```
+
+::right::
+
+### FOOTER
+
+- Default
+
+```markdown
+```
+> LAYER_SLIDETITLE
+
+- Custom
+
+```markdown
+::footer::
+custom string
+```
+> custom string
+
+---
+# ==========================================
+# 📌 SLIDE : 98. DECORATION
+# ==========================================
+layout: cyber-two-cols
+ribbon: TEMPLATE
+---
+
+::header::
+## 98. DECORATION
+
+::left::
+
+- <p class="point">Point</p>
+
+```bash
+<p class="point">Point</p>
+```
+
+- <p class="alert">Alert</p>
+
+```bash
+<p class="alert">Alert</p>
+```
+
+::right::
+
+---
+# ==========================================
+# 🔖 CLOSING : END
+# ==========================================
+layout: lain-end
+ribbon: TEMPLATE
+---
