@@ -66,22 +66,19 @@ ribbon: WIP
 ## 02. CHART TYPE
 
 ::left::
-様々なチャートに対応しています。
 
 - [ ] **annotationchart** - 注釈付きタイムライン
 - [ ] **bar** - マテリアルデザイン棒グラフ
 - [ ] **charteditor** - チャートエディタ
 - [ ] **controls** - ダッシュボードコントロール
-- [X] **corechart** - 折れ線・棒・円・散布図など基本グラフ
+- [X] **corechart** - 折れ線・棒・円など基本グラフ
 - [ ] **gantt** - ガントチャート
 - [X] **gauge** - メーター・ゲージ
 - [X] **geochart** - 国や地域のデータマップ
 - [ ] **line** - マテリアルデザイン折れ線グラフ
 
 ::right::
-
-<br>
-
+ 
 - [ ] **map** - Google マップ地図表示
 - [ ] **motionchart** - モーションチャート
 - [ ] **orgchart** - 組織図
@@ -90,6 +87,8 @@ ribbon: WIP
 - [ ] **timeline** - スケジュールタイムライン
 - [ ] **treemap** - ツリーマップ
 - [ ] **wordtree** - テキストワードツリー
+
+チェック付きはレイアウト例を掲載しています。
 
 ---
 # ==========================================
@@ -154,9 +153,7 @@ layout: cyber-two-cols
 
 ::left::
 
-使い方
-
-```bash
+```vue
 <GoogleCharts 
   type="GeoChart"
   width="200%"
@@ -172,8 +169,6 @@ layout: cyber-two-cols
 ```
 
 ::right::
-
-<br>
 
 <ul class="cyber-list text-lg">
   <li><strong>GoogleCharts</strong> — コンポーネント名</li>
@@ -198,41 +193,34 @@ layout: cyber-two-cols
 
 CoreChart / PieChart 円グラフ
 
-```html
+```vue
 <GoogleCharts 
   type="PieChart"
-  height="200px"
-  :options="{
-    title: 'My Daily Activities'
-  }"
+  :options="{ title: 'My Daily Activities' }"
   :data="[
     ['Task', 'Hours per Day'],
     ['Work',     11],
-    ['Eat',      2],
-    ['Commute',  2],
-    ['Watch TV', 2],
-    ['Sleep',    7]
+    ['Commute',  4],
+    ['Sleep',    9]
   ]"
 />
 ```
 
 ::right::
 
-<br><br>
+<br><br><br>
 
 <GoogleCharts 
   type="PieChart"
-  height="200px"
+  height="100px"
   :options="{
     title: 'My Daily Activities'
   }"
   :data="[
     ['Task', 'Hours per Day'],
     ['Work',     11],
-    ['Eat',      2],
-    ['Commute',  2],
-    ['Watch TV', 2],
-    ['Sleep',    7]
+    ['Commute',  4],
+    ['Sleep',    9]
   ]"
 />
 
@@ -250,7 +238,7 @@ layout: cyber-two-cols
 
 Gauge メーター・ゲージ
 
-```bash
+```vue
 <GoogleCharts 
   type="Gauge"
   height="200px"
@@ -288,7 +276,7 @@ layout: cyber-two-cols
 
 GeoChart 国や地域のデータマップ
 
-```html
+```vue
 <GoogleCharts 
   type="GeoChart"
   height="200px"
@@ -305,11 +293,12 @@ GeoChart 国や地域のデータマップ
 
 ::right::
 
-<div class="w-1/2 mx-auto">
+<br><br><br>
 
 <GoogleCharts 
   type="GeoChart"
-  width="200%"
+  width="130%"
+  height="200px"
   :options="{
     region: 'JP',
     resolution: 'provinces',
@@ -319,8 +308,6 @@ GeoChart 国や地域のデータマップ
     ['北海道', 100]
   ]"
 />
-
-</div>
 
 ---
 # ==========================================
@@ -337,19 +324,15 @@ ribbon: WIP
 
 Table データ表
 
-```html
+```vue
 <GoogleCharts 
   type="Table"
-  height="200px"
-  :options="{
-    title: 'My Daily Activities'
-  }"
+  :options="{ title: 'My Daily Activities' }"
   :data="[
     ['Name',  'Salary', 'Full Time Employee'],
     ['Mike',  {v: 10000, f: '$10,000'}, true],
     ['Jim',   {v:8000,   f: '$8,000'},  false],
     ['Alice', {v: 12500, f: '$12,500'}, true],
-    ['Bob',   {v: 7000,  f: '$7,000'},  true]
   ]"
 />
 ```
@@ -367,7 +350,6 @@ Table データ表
     ['Mike',  {v: 10000, f: '$10,000'}, true],
     ['Jim',   {v:8000,   f: '$8,000'},  false],
     ['Alice', {v: 12500, f: '$12,500'}, true],
-    ['Bob',   {v: 7000,  f: '$7,000'},  true]
   ]"
 />
 
@@ -490,9 +472,8 @@ ribbon: TEMPLATE
 
 表紙
 
-```markdown
+```yaml
 theme: default
-css: ./style.css 
 background: ''
 class: text-center
 lineNumbers: true
@@ -501,7 +482,6 @@ drawings:
 title: Arch Linux Style Presentation
 addons:
   - slidev-addon-google-charts
-
 layout: cyber-cover
 highlighter: shiki
 transition: fade
@@ -511,19 +491,19 @@ transition: fade
 
 スライド(1カラム)
 
-```markdown
+```yaml
 layout: cyber-one-col
 ```
 
 スライド(2カラム)
 
-```markdown
+```yaml
 layout: cyber-one-col
 ```
 
 クロージング
 
-```markdown
+```yaml
 layout: cyber-one-col
 ```
 
@@ -596,7 +576,8 @@ ribbon: TEMPLATE
 ## 96. LIST
 
 ::left::
-```bash
+
+```text
 - [X] Closed
 - [ ] Open
 ```
@@ -618,18 +599,18 @@ ribbon: TEMPLATE
 ## 97. RIBBON / FOOTER
 
 ::left::
-### RIBBON
 
-- TEMPLATE
+RIBBON / TEMPLATE
 
-```bash
+```yaml
 ---
 ribbon: TEMPLATE
 ---
 ```
 
-- WIP
-```bash
+RIBBON / WIP
+
+```yaml
 ---
 ribbon: WIP
 ---
@@ -637,17 +618,15 @@ ribbon: WIP
 
 ::right::
 
-### FOOTER
+FOOTER / Default
 
-- Default
-
-```markdown
+```text
 ```
 > LAYER_SLIDETITLE
 
-- Custom
+FOOTER / Custom
 
-```markdown
+```text
 ::footer::
 custom string
 ```
@@ -668,13 +647,13 @@ ribbon: TEMPLATE
 
 - <p class="point">Point</p>
 
-```bash
+```html
 <p class="point">Point</p>
 ```
 
 - <p class="alert">Alert</p>
 
-```bash
+```html
 <p class="alert">Alert</p>
 ```
 

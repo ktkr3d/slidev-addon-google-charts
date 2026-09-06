@@ -397,3 +397,135 @@ h2.text-neon-cyan {
   color: #ffffff !important;         /* 💡 取り消し線を消し、白い文字として残す */
   text-decoration: none !important;  /* 💡 取り消し線を強制無効化 */
 }
+
+/* =================================================== */
+/* ⚡ コードブロック（ターミナル）の視認性爆上げカスタム */
+/* =================================================== */
+
+/* 1. コード全体のベース強化 */
+.slidev-layout pre.shiki {
+  /* 背景をさらに深く（漆黒に近く）して、文字とのコントラストを最大化 */
+  background-color: #0d1117 !important; 
+  /* 文字を少し太く、パキッと発色させる */
+  font-weight: 500 !important;
+  /* 文字のサイズを少し大きく（14px相当）して読みやすく */
+  font-size: 0.95rem !important;
+  /* 行間（行の高さ）を広げて、上下の文字が詰まるのを防ぐ */
+  /* line-height: 1.6 !important; */
+  /* 合字（リガチャ）対応のプログラミングフォントを強制適用 */
+  font-family: 'JetBrains Mono', 'Fira Code', monospace !important;
+  /* 視認性のためのレンダリング最適化 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 2. 最も見づらくなりがちな「コメント（# や //）」の視認性強化 */
+.slidev-layout pre.shiki .comment,
+.slidev-layout pre.shiki span[style*="color:#6A737D"],
+.slidev-layout pre.shiki span[style*="color:#6a737d"],
+.slidev-layout pre.shiki span[style*="color:#8b949e"] {
+  /* デフォルトの暗いグレーを拒否し、明るく読みやすい「サイバーグリーン/ミント」に変更 */
+  color: #5af78e !important;
+  font-style: italic !important;
+  /* コメント部分だけ少し透明度を下げて主役のコードと区別（それでも十分読める明るさ） */
+  opacity: 0.85 !important;
+}
+
+/* 3. 一般テキスト（記号や変数など）のベース色 */
+.slidev-layout pre.shiki span {
+  /* ぼやけた色合いをパキッとした明度の高いサイバーカラーに底上げ */
+  text-shadow: 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* 4. 【オプション】現在行のハイライト（Slidevの {2} などの機能用） */
+.slidev-layout pre.shiki .line.highlight {
+  background-color: rgba(23, 147, 209, 0.15) !important;
+  border-left: 3px solid var(--arch-cyan) !important;
+  display: block;
+  margin-right: -14px;
+  margin-left: -14px;
+  padding-left: 11px;
+}
+
+/* =================================================== */
+/* ⚡ Vueコードブロック専用：超高輝度・ネオンハイライト */
+/* =================================================== */
+
+/* 1. Vueの「HTMLタグ（template, div, span など）」をパキッとしたサイバーピンクに */
+.slidev-layout pre.shiki span[style*="color:#F92672"],
+.slidev-layout pre.shiki span[style*="color:#ff557f"],
+.slidev-layout pre.shiki .tag,
+.slidev-layout pre.shiki .ent {
+  color: #ff007f !important; /* 強烈なネオンピンク */
+  font-weight: bold !important;
+}
+
+/* 2. Vueの「カスタムコンポーネント名（<SlideCurrentNo /> など）」をエレクトリックブルーに */
+.slidev-layout pre.shiki span[style*="color:#66D9EF"],
+.slidev-layout pre.shiki .class-name,
+.slidev-layout pre.shiki .component {
+  color: #00f0ff !important; /* 公式Archブルーより一段明るいサイバーシアン */
+  text-shadow: 0 0 4px rgba(0, 240, 255, 0.4) !important;
+}
+
+/* 3. コンポーネントの「属性・プロパティ（class, lang, v-if, :class など）」を眩しいライムイエローに */
+.slidev-layout pre.shiki span[style*="color:#A6E22E"],
+.slidev-layout pre.shiki .attr-name,
+.slidev-layout pre.shiki .attribute {
+  color: #e0f542 !important; /* 明度MAXのライムネオン */
+}
+
+/* 4. ダブルクォーテーションで囲まれた「文字列（"ts", "cyber-box" など）」を完全な純白に */
+.slidev-layout pre.shiki span[style*="color:#E6DB74"],
+.slidev-layout pre.shiki .string {
+  color: #ffffff !important; /* 暗い黄色から「白」へ変更してコントラストを最優先 */
+  font-weight: 500 !important;
+}
+
+/* 5. JavaScript/TypeScriptのキーワード（import, const, return など） */
+.slidev-layout pre.shiki .keyword {
+  color: #ff007f !important;
+  font-weight: bold !important;
+}
+
+/* =================================================== */
+/* ⚡ text言語ブロックの文字を「絶対に」真っ白にするCSS */
+/* =================================================== */
+
+/* 
+  Slidevのあらゆる親要素・インライン指定をぶち抜くために、
+  最も強力な全称セレクタ（*）と、言語クラスの組み合わせに
+  !important を付与して強制上書きします。
+*/
+.slidev-layout pre.shiki[class*="language-text"] *,
+.slidev-layout pre.shiki[class*="language-plaintext"] *,
+.slidev-layout pre[class*="language-text"] span,
+.slidev-layout pre[class*="language-plaintext"] span {
+  color: #ffffff !important;
+  font-weight: 600 !important; /* 遠くからでも読めるように文字を肉厚に */
+  opacity: 1 !important;        /* 万が一透明度が下がっている場合も100%に固定 */
+  text-shadow: none !important; /* ぼやけを完全に無くしてソリッドな白に */
+}
+
+/* =================================================== */
+/* ⚡ Shikiの変数（--shiki-light）を強制的に純白へ上書き */
+/* =================================================== */
+
+/* 
+  text / plaintext 言語ブロックの内部でのみ、
+  Shikiが参照しているカラー変数を強制的に #ffffff（純白）に固定します。
+*/
+.slidev-layout pre.shiki[class*="language-text"],
+.slidev-layout pre.shiki[class*="language-plaintext"] {
+  --shiki-light: #ffffff !important;
+  --shiki-dark: #ffffff !important; /* 万が一ダークテーマが効いても白に固定 */
+  color: #ffffff !important;
+}
+
+html:not(.dark) .shiki code[class="language-text"] span {
+  color: #dddddd !important;
+}
+
+.slidev-layout pre.shiki {
+  padding-bottom: 5px !important; /* 下の余白を少し減らして、コードブロックの高さをコンパクトに */
+}
