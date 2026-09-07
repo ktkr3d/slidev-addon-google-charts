@@ -17,14 +17,17 @@ const props = defineProps({
   type: { type: String, required: true },
   data: { type: Array, required: true },
   options: { type: Object, default: () => ({}) },
+/*
   width: { type: String, default: '100%' },
   height: { type: String, default: '400px' }
+*/
 })
 
 const chartPackages = computed(() => {
   const typeLower = props.type.toLowerCase()
   if (typeLower === 'annotationchart') return ['annotationchart']
   if (typeLower === 'bar') return ['bar']
+  if (typeLower === 'calendar') return ['calendar']
   if (typeLower === 'charteditor') return ['charteditor']
   if (typeLower === 'controls') return ['controls']
   if (typeLower === 'gantt') return ['gantt']
@@ -44,10 +47,12 @@ const chartPackages = computed(() => {
 </script>
 
 <style scoped>
+/*
 .slidev-google-chart-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   margin: 1rem 0;
 }
+ */
 </style>
