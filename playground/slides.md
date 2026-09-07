@@ -5,7 +5,7 @@
 theme: default
 background: ''
 class: text-center
-lineNumbers: true
+lineNumbers: false
 drawings:
   persist: false
 title: Slidev Addon Google Charts
@@ -56,49 +56,13 @@ Slidevで[Google Charts](https://developers.google.com/chart/)を利用するた
 
 ---
 # ==========================================
-# 📌 SLIDE : 02. CHART TYPE
-# ==========================================
-layout: cyber-two-cols
-ribbon: WIP
----
-
-::header::
-## 02. CHART TYPE
-
-::left::
-
-- [ ] **annotationchart** - 注釈付きタイムライン
-- [ ] **bar** - マテリアルデザイン棒グラフ
-- [ ] **charteditor** - チャートエディタ
-- [ ] **controls** - ダッシュボードコントロール
-- [X] **corechart** - 折れ線・棒・円など基本グラフ
-- [ ] **gantt** - ガントチャート
-- [X] **gauge** - メーター・ゲージ
-- [X] **geochart** - 国や地域のデータマップ
-- [ ] **line** - マテリアルデザイン折れ線グラフ
-
-::right::
- 
-- [ ] **map** - Google マップ地図表示
-- [ ] **motionchart** - モーションチャート
-- [ ] **orgchart** - 組織図
-- [ ] **sankey** - サンキー・ダイアグラム
-- [X] **table** - データ表
-- [ ] **timeline** - スケジュールタイムライン
-- [ ] **treemap** - ツリーマップ
-- [ ] **wordtree** - テキストワードツリー
-
-チェック付きはレイアウト例を掲載しています。
-
----
-# ==========================================
-# 📌 SLIDE : 03. SETUP
+# 📌 SLIDE : 02. SETUP
 # ==========================================
 layout: cyber-two-cols
 ---
 
 ::header::
-## 03. SETUP
+## 02. SETUP
 
 ::left::
 
@@ -143,20 +107,19 @@ npm install -allow-git=root \
 
 ---
 # ==========================================
-# 📌 SLIDE : 04. HOW TO USE
+# 📌 SLIDE : 03. HOW TO USE
 # ==========================================
 layout: cyber-two-cols
 ---
 
 ::header::
-## 04. HOW TO USE
+## 03. HOW TO USE
 
 ::left::
 
 ```vue
 <GoogleCharts 
   type="GeoChart"
-  width="200%"
   :options="{
     region: 'JP',
     resolution: 'provinces',
@@ -173,25 +136,60 @@ layout: cyber-two-cols
 <ul class="cyber-list text-lg">
   <li><strong>GoogleCharts</strong> — コンポーネント名</li>
   <li><strong>type</strong> — チャート種別</li>
-  <li><strong>width</strong> — 幅（デフォルト: 100%）</li>
-  <li><strong>height</strong> — 高さ（デフォルト: 400px）</li>
   <li><strong>:options</strong> — オプション</li>
   <li><strong>:data</strong> — データ</li>
 </ul>
 
 ---
 # ==========================================
-# 📌 SLIDE : 05. GOOGLE CHARTS - CORECHART
+# 📌 SLIDE : 04. CHART TYPE
+# ==========================================
+layout: cyber-two-cols
+ribbon: WIP
+---
+
+::header::
+## 04. CHART TYPE
+
+::left::
+
+- CoreChart
+  - AreaChart
+  - BarChart
+  - BubbleChart
+  - CandlestickChart
+  - ColumnChart
+  - ComboChart
+  - PieChart
+  - ScatterChart
+  - SteppedAreaChart
+
+::right::
+ 
+- AnnotationChart 注釈付きタイムライン
+- Calendar
+- Gantt ガントチャート
+- Gauge
+- GeoChart
+- Map Google マップ地図表示
+- Orgchart 組織図
+- Sankey サンキー・ダイアグラム
+- Table データ表
+- Timeline スケジュールタイムライン
+- TreeMap ツリーマップ
+- WordTree テキストワードツリー
+
+---
+# ==========================================
+# 📌 SLIDE : 05. CORECHART - PIECHART
 # ==========================================
 layout: cyber-two-cols
 ---
 
 ::header::
-## 05. GOOGLE CHARTS - CORECHART
+## 05. CORECHART - [PIECHART](https://developers.google.com/chart/interactive/docs/gallery/piechart)
 
 ::left::
-
-CoreChart / PieChart 円グラフ
 
 ```vue
 <GoogleCharts 
@@ -208,11 +206,8 @@ CoreChart / PieChart 円グラフ
 
 ::right::
 
-<br><br><br>
-
 <GoogleCharts 
   type="PieChart"
-  height="100px"
   :options="{
     title: 'My Daily Activities'
   }"
@@ -226,103 +221,353 @@ CoreChart / PieChart 円グラフ
 
 ---
 # ==========================================
-# 📌 SLIDE : 06. GOOGLE CHARTS - GAUGE
-# ==========================================
-layout: cyber-two-cols
----
-
-::header::
-## 06. GOOGLE CHARTS - GAUGE
-
-::left::
-
-Gauge メーター・ゲージ
-
-```vue
-<GoogleCharts 
-  type="Gauge"
-  height="200px"
-  :data="[
-    ['Label', 'Value'],
-    ['CPU', 85]
-  ]"
-/>
-```
-
-::right::
-
-<br>
-
-<GoogleCharts 
-  type="Gauge"
-  height="200px"
-  :data="[
-    ['Label', 'Value'],
-    ['CPU', 85]
-  ]"
-/>
-
----
-# ==========================================
-# 📌 SLIDE : 07. GOOGLE CHARTS - GEOCHART
-# ==========================================
-layout: cyber-two-cols
----
-
-::header::
-## 07. GOOGLE CHARTS - GEOCHART
-
-::left::
-
-GeoChart 国や地域のデータマップ
-
-```vue
-<GoogleCharts 
-  type="GeoChart"
-  height="200px"
-  :options="{
-    region: 'JP',
-    resolution: 'provinces',
-  }"
-  :data="[
-    ['都道府県', '値'],
-    ['北海道', 100]
-  ]"
-/>
-```
-
-::right::
-
-<br><br><br>
-
-<GoogleCharts 
-  type="GeoChart"
-  width="130%"
-  height="200px"
-  :options="{
-    region: 'JP',
-    resolution: 'provinces',
-  }"
-  :data="[
-    ['都道府県', '値'],
-    ['北海道', 100]
-  ]"
-/>
-
----
-# ==========================================
-# 📌 SLIDE : 08. GOOGLE CHARTS - TABLE
+# 📌 SLIDE : 06. CORECHART - LINECHART
 # ==========================================
 layout: cyber-two-cols
 ribbon: WIP
 ---
 
 ::header::
-## 08. GOOGLE CHARTS - TABLE
+## 06. CORECHART - [LINECHART](https://developers.google.com/chart/interactive/docs/gallery/linechart)
 
 ::left::
 
-Table データ表
+<GoogleCharts 
+  type="LineChart"
+  :options="{
+    title: 'Company Performance',
+    curveType: 'function',
+    legend: { position: 'bottom' }
+  }"
+  :data="[
+    ['Year', 'Sales', 'Expenses'],
+    ['2004',  1000,      400],
+    ['2005',  1170,      460],
+    ['2006',  660,       1120],
+    ['2007',  1030,      540]
+  ]"
+/>
+
+::right::
+
+---
+# ==========================================
+# 📌 SLIDE : 07. CORECHART - (UNTESTED)
+# ==========================================
+layout: cyber-two-cols
+---
+
+::header::
+## 07. CORECHART - (UNTESTED)
+
+::left::
+
+- CoreChart
+  - AreaChart
+  - BarChart
+  - BubbleChart
+  - CandlestickChart
+  - ColumnChart
+  - ComboChart
+  - ScatterChart
+  - SteppedAreaChart
+
+::right::
+
+---
+# ==========================================
+# 📌 SLIDE : 08. ANNOTATIONCHART
+# ==========================================
+layout: cyber-two-cols
+ribbon: WIP
+---
+
+::header::
+## 08. [ANNOTATIONCHART](https://developers.google.com/chart/interactive/docs/gallery/annotationchart)
+
+::left::
+
+<GoogleCharts 
+  type="AnnotationChart"
+  :options="{
+    displayAnnotations: true
+  }"
+  :data="[
+    ['Date',  'Kepler-22b mission', 'Kepler title', 'Kepler text', 'Gliese 163 mission', 'Gliese title', 'Gliese text'],
+    [new Date(2314, 2, 15), 12400, undefined, undefined,
+                            10645, undefined, undefined],
+    [new Date(2314, 2, 16), 24045, 'Lalibertines', 'First encounter',
+                            12374, undefined, undefined],
+    [new Date(2314, 2, 17), 35022, 'Lalibertines', 'They are very tall',
+                            15766, 'Gallantors', 'First Encounter'],
+    [new Date(2314, 2, 18), 12284, 'Lalibertines', 'Attack on our crew!',
+                            34334, 'Gallantors', 'Statement of shared principles'],
+    [new Date(2314, 2, 19), 8476, 'Lalibertines', 'Heavy casualties',
+                            66467, 'Gallantors', 'Mysteries revealed'],
+    [new Date(2314, 2, 20), 0, 'Lalibertines', 'All crew lost',
+                            79463, 'Gallantors', 'Omniscience achieved']
+  ]"
+/>
+
+::right::
+
+---
+# ==========================================
+# 📌 SLIDE : 09. CALENDAR
+# ==========================================
+layout: cyber-two-cols
+ribbon: WIP
+---
+
+::header::
+## 09. [CALENDAR](https://developers.google.com/chart/interactive/docs/gallery/calendar)
+
+::left::
+
+<!--
+<GoogleCharts 
+  type="Calendar"
+  :options="{
+    title: 'Red Sox Attendance',
+    height: 350
+  }"
+  :data="[
+    [ 'Date', 'Won/Loss' ],
+    [ new Date(2012, 3, 13), 37032 ],
+    [ new Date(2012, 3, 14), 38024 ],
+    [ new Date(2012, 3, 15), 38024 ],
+    [ new Date(2012, 3, 16), 38108 ],
+    [ new Date(2012, 3, 17), 38229 ],
+    [ new Date(2013, 9, 4), 38177 ],
+    [ new Date(2013, 9, 5), 38705 ],
+    [ new Date(2013, 9, 12), 38210 ],
+    [ new Date(2013, 9, 13), 38029 ],
+    [ new Date(2013, 9, 19), 38823 ],
+    [ new Date(2013, 9, 23), 38345 ],
+    [ new Date(2013, 9, 24), 38436 ],
+    [ new Date(2013, 9, 30), 38447 ]
+  ]"
+/>
+-->
+::right::
+
+<p class="alert">Concerns regarding load</p>
+
+---
+# ==========================================
+# 📌 SLIDE : 10. GANNT
+# ==========================================
+layout: cyber-two-cols
+ribbon: WIP
+---
+
+::header::
+## 10. [GANNT](https://developers.google.com/chart/interactive/docs/gallery/gannt)
+
+::left::
+
+<GoogleCharts 
+  type="Gantt"
+  :options="{
+    width: 500,
+    height: 250
+  }"
+  :data="[
+    [ 'Task ID', 'Task Name', 'Resource', 'Start', 'End', 'Duration', 'Percent Complete', 'Dependencies' ],
+    ['Research', 'Find sources', null, new Date(2015, 0, 1), new Date(2015, 0, 5), 0,  100,  null],
+    ['Write', 'Write paper', 'write', null, new Date(2015, 0, 9), 259200000, 25, 'Research,Outline'],
+    ['Cite', 'Create bibliography', 'write', null, new Date(2015, 0, 7), 86400000, 20, 'Research'],
+    ['Complete', 'Hand in paper', 'complete', null, new Date(2015, 0, 10), 86400000, 0, 'Cite,Write'],
+    ['Outline', 'Outline paper', 'write', null, new Date(2015, 0, 6), 86400000, 100, 'Research']
+  ]"
+/>
+
+
+::right::
+
+---
+# ==========================================
+# 📌 SLIDE : 11. GAUGE
+# ==========================================
+layout: cyber-two-cols
+---
+
+::header::
+## 11. [GAUGE](https://developers.google.com/chart/interactive/docs/gallery/gauge)
+
+::left::
+
+```vue
+<GoogleCharts 
+  type="Gauge"
+  :data="[
+    ['Label', 'Value'],
+    ['CPU', 85]
+  ]"
+/>
+```
+
+::right::
+
+<GoogleCharts 
+  type="Gauge"
+  :data="[
+    ['Label', 'Value'],
+    ['CPU', 85]
+  ]"
+/>
+
+---
+# ==========================================
+# 📌 SLIDE : 12. GEOCHART
+# ==========================================
+layout: cyber-two-cols
+---
+
+::header::
+## 12. [GEOCHART](https://developers.google.com/chart/interactive/docs/gallery/geochart)
+
+::left::
+
+```vue
+<GoogleCharts 
+  type="GeoChart"
+  :options="{
+    region: 'JP',
+    resolution: 'provinces',
+  }"
+  :data="[
+    ['都道府県', '値'],
+    ['北海道', 100]
+  ]"
+/>
+```
+
+::right::
+
+<GoogleCharts 
+  type="GeoChart"
+  :options="{
+    region: 'JP',
+    resolution: 'provinces',
+  }"
+  :data="[
+    ['都道府県', '値'],
+    ['北海道', 100]
+  ]"
+/>
+
+
+---
+# ==========================================
+# 📌 SLIDE : 13. MAP
+# ==========================================
+layout: cyber-two-cols
+ribbon: WIP
+---
+
+::header::
+## 13. [MAP](https://developers.google.com/chart/interactive/docs/gallery/map)
+
+::left::
+
+<GoogleCharts 
+  type="Map"
+  :options="{
+    showTooltip: true,
+    showInfoWindow: true,
+    width: 400,
+    height: 250
+  }"
+  :data="[
+    ['Country', 'Population'],
+    ['China', 'China: 1,363,800,000'],
+    ['India', 'India: 1,242,620,000'],
+    ['US', 'US: 317,842,000'],
+    ['Indonesia', 'Indonesia: 247,424,598'],
+    ['Brazil', 'Brazil: 201,032,714'],
+    ['Pakistan', 'Pakistan: 186,134,000'],
+    ['Nigeria', 'Nigeria: 173,615,000'],
+    ['Bangladesh', 'Bangladesh: 152,518,015'],
+    ['Russia', 'Russia: 146,019,512'],
+    ['Japan', 'Japan: 127,120,000']
+  ]"
+/>
+
+::right::
+
+<p class="alert">Need a mapsApiKey </p>
+
+---
+# ==========================================
+# 📌 SLIDE : 14. ORGCHART
+# ==========================================
+layout: cyber-two-cols
+ribbon: WIP
+---
+
+::header::
+## 14. [ORGCHART](https://developers.google.com/chart/interactive/docs/gallery/orgchart)
+
+::left::
+
+<GoogleCharts 
+  type="OrgChart"
+  :options="{
+  }"
+  :data="[
+    [ 'Name', 'Manager', 'ToolTip' ],
+    ['Mike', '', 'The President'],
+    ['Jim', 'Mike', 'VP'],
+    ['Alice', 'Mike', ''],
+    ['Bob', 'Jim', 'Bob Sponge'],
+  ]"
+/>
+
+::right::
+
+---
+# ==========================================
+# 📌 SLIDE : 15. SANKEY
+# ==========================================
+layout: cyber-two-cols
+ribbon: WIP
+---
+
+::header::
+## 15. [SANKEY](https://developers.google.com/chart/interactive/docs/gallery/sankey)
+
+::left::
+
+<GoogleCharts 
+  type="Sankey"
+  :options="{
+  }"
+  :data="[
+    [ 'From', 'To', 'Weight' ],
+    [ 'A', 'X', 5 ],
+    [ 'A', 'Y', 7 ],
+    [ 'A', 'Z', 6 ],
+    [ 'B', 'X', 2 ],
+    [ 'B', 'Y', 9 ],
+    [ 'B', 'Z', 4 ]
+  ]"
+/>
+
+::right::
+
+---
+# ==========================================
+# 📌 SLIDE : 16. TABLE
+# ==========================================
+layout: cyber-two-cols
+ribbon: WIP
+---
+
+::header::
+## 16. [TABLE](https://developers.google.com/chart/interactive/docs/gallery/table)
+
+::left::
 
 ```vue
 <GoogleCharts 
@@ -341,9 +586,11 @@ Table データ表
 
 <GoogleCharts 
   type="Table"
-  height="200px"
   :options="{
-    title: 'My Daily Activities'
+    title: 'My Daily Activities',
+    showRowNumber: true,
+    width: 400,
+    height: 150
   }"
   :data="[
     ['Name',  'Salary', 'Full Time Employee'],
@@ -353,35 +600,140 @@ Table データ表
   ]"
 />
 
+
 ---
 # ==========================================
-# 📌 SLIDE : 09. GOOGLE CHARTS - (REST)
+# 📌 SLIDE : 17. TIMELINE
 # ==========================================
 layout: cyber-two-cols
 ribbon: WIP
 ---
 
 ::header::
-## 09. GOOGLE CHARTS - (UNTESTED)
+## 17. [TIMELINE](https://developers.google.com/chart/interactive/docs/gallery/timeline)
 
 ::left::
 
-- annotationchart 注釈付きタイムライン
-- bar マテリアルデザイン棒グラフ
-- charteditor チャートエディタ
-- controls ダッシュボードコントロール
-- gantt ガントチャート
-- line マテリアルデザイン折れ線グラフ
-- map Google マップ地図表示
+<GoogleCharts 
+  type="Timeline"
+  :options="{
+    width: '100%'
+  }"
+  :data="[
+    [ 'President', 'Start', 'End' ],
+    [ 'Washington', new Date(1789, 3, 30), new Date(1797, 2, 4) ],
+    [ 'Adams',      new Date(1797, 2, 4),  new Date(1801, 2, 4) ],
+    [ 'Jefferson',  new Date(1801, 2, 4),  new Date(1809, 2, 4) ]
+  ]"
+/>
 
 ::right::
 
-- motionchart モーションチャート
-- orgchart 組織図
-- sankey サンキー・ダイアグラム
-- timeline スケジュールタイムライン
-- treemap ツリーマップ
-- wordtree テキストワードツリー
+---
+# ==========================================
+# 📌 SLIDE : 18. TREEMAP
+# ==========================================
+layout: cyber-two-cols
+ribbon: WIP
+---
+
+::header::
+## 18. [TREEMAP](https://developers.google.com/chart/interactive/docs/gallery/treemap)
+
+::left::
+
+<GoogleCharts 
+  type="TreeMap"
+  :options="{
+  }"
+  :data="[
+    ['Location', 'Parent', 'Market trade volume (size)', 'Market increase/decrease (color)'],
+    ['Global',    null,                 0,                               0],
+    ['America',   'Global',             0,                               0],
+    ['Europe',    'Global',             0,                               0],
+    ['Asia',      'Global',             0,                               0],
+    ['Australia', 'Global',             0,                               0],
+    ['Africa',    'Global',             0,                               0],
+    ['Brazil',    'America',            11,                              10],
+    ['USA',       'America',            52,                              31],
+    ['Mexico',    'America',            24,                              12],
+    ['Canada',    'America',            16,                              -23],
+    ['France',    'Europe',             42,                              -11],
+    ['Germany',   'Europe',             31,                              -2],
+    ['Sweden',    'Europe',             22,                              -13],
+    ['Italy',     'Europe',             17,                              4],
+    ['UK',        'Europe',             21,                              -5],
+    ['China',     'Asia',               36,                              4],
+    ['Japan',     'Asia',               20,                              -12],
+    ['India',     'Asia',               40,                              63],
+    ['Laos',      'Asia',               4,                               34],
+    ['Mongolia',  'Asia',               1,                               -5],
+    ['Israel',    'Asia',               12,                              24],
+    ['Iran',      'Asia',               18,                              13],
+    ['Pakistan',  'Asia',               11,                              -52],
+    ['Egypt',     'Africa',             21,                              0],
+    ['S. Africa', 'Africa',             30,                              43],
+    ['Sudan',     'Africa',             12,                              2],
+    ['Congo',     'Africa',             10,                              12],
+    ['Zaire',     'Africa',             8,                               10]
+  ]"
+/>
+
+::right::
+
+<dl>
+  <dt>左クリック</dt>
+  <dd>末端へ進む</dd>
+  <dt>右クリック</dt>
+  <dd>上位へ戻る</dd>
+</dl>
+
+---
+# ==========================================
+# 📌 SLIDE : 19. WORDTREE
+# ==========================================
+layout: cyber-two-cols
+ribbon: WIP
+---
+
+::header::
+## 19. [WORDTREE](https://developers.google.com/chart/interactive/docs/gallery/wordtree)
+
+::left::
+
+<GoogleCharts 
+  type="WordTree"
+  :options="{
+    width: '100%',
+    height: 350,
+    wordtree: {
+      format: 'implicit',
+      word: 'cats'
+    }  
+  }"
+  :data="[
+    ['Phrases'],
+    ['cats are better than dogs'],
+    ['cats eat kibble'],
+    ['cats are better than hamsters'],
+    ['cats are awesome'],
+    ['cats are people too'],
+    ['cats eat mice'],
+    ['cats meowing'],
+    ['cats in the cradle'],
+    ['cats eat mice'],
+    ['cats in the cradle lyrics'],
+    ['cats eat kibble'],
+    ['cats for adoption'],
+    ['cats are family'],
+    ['cats eat mice'],
+    ['cats are better than kittens'],
+    ['cats are evil'],
+    ['cats are weird'],
+    ['cats eat mice'],
+  ]"/>
+
+::right::
 
 ---
 # ==========================================
@@ -446,16 +798,16 @@ ribbon: TEMPLATE
 ---
 
 ::header::
-## 92. CYBER LAYOUTS
+## 92. LAYOUTS
 
 ::default::
 
 | LAYOUT NAME | PURPOSE | PARTITION |
 | :--- | :--- | :--- |
-| `cyber-cover` | 表紙 | - `::command::` <br> - `::default::` <br> - `::subtitle::` |
-| `cyber-one-col` | スライド(1カラム) | - `::header::` <br> - `::default::` |
-| `cyber-two-cols` | スライド(2カラム) | - `::header::` <br> - `::left::` <br> - `::right::`|
-| `lain-end` | クロージング | (なし) |
+| `cyber-cover` | Cover | - `::command::` <br> - `::default::` <br> - `::subtitle::` |
+| `cyber-one-col` | One Column | - `::header::` <br> - `::default::` |
+| `cyber-two-cols` | Two Columns | - `::header::` <br> - `::left::` <br> - `::right::`|
+| `lain-end` | Closing Slide | (none) |
 
 ---
 # ==========================================
@@ -470,41 +822,40 @@ ribbon: TEMPLATE
 
 ::left::
 
-表紙
+Head Matter
 
 ```yaml
-theme: default
-background: ''
-class: text-center
-lineNumbers: true
-drawings:
-  persist: false
 title: Arch Linux Style Presentation
-addons:
-  - slidev-addon-google-charts
-layout: cyber-cover
+theme: default
+addons: [ slidev-addon-google-charts ]
+lineNumbers: false
+drawings: { persist: false }
 highlighter: shiki
 transition: fade
+
+layout: cyber-cover
+background: ''
+class: text-center
 ```
 
 ::right::
 
-スライド(1カラム)
+Slide Front Matter (One Column)
 
 ```yaml
 layout: cyber-one-col
 ```
 
-スライド(2カラム)
+Slide Front Matter (Two Columns)
 
 ```yaml
-layout: cyber-one-col
+layout: cyber-two-cols
 ```
 
-クロージング
+Slide Front Matter (Closing Slide)
 
 ```yaml
-layout: cyber-one-col
+layout: lain-end
 ```
 
 ---
@@ -516,7 +867,7 @@ ribbon: TEMPLATE
 ---
 
 ::header::
-## 94. CYBER TABLE
+## 94. TABLE
 
 ::default::
 
@@ -542,27 +893,31 @@ ribbon: TEMPLATE
 ## 95. CODEBLOCK
 
 ::left::
-```bash
-# Arch Linux パッケージマネージャー
-sudo pacman -Syu
-sudo pacman -S neovim tmux zsh
 
-# 特徴的なパッケージの導入
-yay -S slidev-cli-git
+```ts
+// Retry failed async operation
+export async function retry<T>(
+  fn: () => Promise<T>,
+  retries = 3
+): Promise<T> {
+  try {
+    return await fn();
+  } catch (err) {
+    if (retries <= 0) throw err;
+    console.warn(`Fail: \${retries} left`);
+    return retry(fn, retries - 1);
+  }
+}
 ```
 
 ::right::
-<ul class="cyber-list text-lg">
-  <li><strong>Pacman Optimization</strong> — ミラーリストを最速に同期。</li>
-  <li><strong>Development Tools</strong> — 開発に必要なミニマル環境をワンコマンドで構築。</li>
-  <li><strong>Bleeding Edge</strong> — 常に最新のソフトウェアをローリングリリース。</li>
-</ul>
 
-<!--
-<div class="mt-6 border border-coolgray-800 rounded p-1 bg-black/40">
-  <img src="https://unsplash.com" class="w-full opacity-80 filter saturate-50 rounded" alt="Cyberpunk Code">
-</div>
--->
+<dl>
+<dt>Auto-Retry</dt><dd>Automatically re-runs failed async tasks.</dd>
+<dt>Type-Safe</dt><dd>Maintains the exact return type for any function.</dd>
+<dt>Recursion</dt><dd>Retries clean and minimal with self-calling loops.</dd>
+<dt>Safe Throw</dt><dd>Throws the final error after all attempts fail.</dd>
+</dl>
 
 ---
 # ==========================================
@@ -577,15 +932,32 @@ ribbon: TEMPLATE
 
 ::left::
 
+Task list
+
 ```text
 - [X] Closed
 - [ ] Open
 ```
+- [X] Closed
+- [ ] Open
 
 ::right::
 
-- [X] Closed
-- [ ] Open
+Description List
+
+```text
+<dl>
+  <dt>Real</dt>
+  <dd>The real world</dd>
+  <dt>Wired</dt>
+  <dd>The world of the Internet</dd>
+</dl>
+```
+
+<dl>
+<dt>Real</dt><dd>The real world</dd>
+<dt>Wired</dt><dd>The world of the Internet</dd>
+</dl>
 
 ---
 # ==========================================
@@ -600,7 +972,7 @@ ribbon: TEMPLATE
 
 ::left::
 
-RIBBON / TEMPLATE
+RIBBON - TEMPLATE
 
 ```yaml
 ---
@@ -608,7 +980,7 @@ ribbon: TEMPLATE
 ---
 ```
 
-RIBBON / WIP
+RIBBON - WIP
 
 ```yaml
 ---
@@ -618,13 +990,13 @@ ribbon: WIP
 
 ::right::
 
-FOOTER / Default
+FOOTER - Default
 
 ```text
 ```
 > LAYER_SLIDETITLE
 
-FOOTER / Custom
+FOOTER - Custom
 
 ```text
 ::footer::
@@ -645,17 +1017,19 @@ ribbon: TEMPLATE
 
 ::left::
 
-- <p class="point">Point</p>
-
 ```html
-<p class="point">Point</p>
+<span class="point">Point</span>
 ```
 
-- <p class="alert">Alert</p>
+<span class="point">Point</span>
+
+<br>
 
 ```html
-<p class="alert">Alert</p>
+<span class="alert">Alert</span>
 ```
+
+<span class="alert">Alert</span>
 
 ::right::
 

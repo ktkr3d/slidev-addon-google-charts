@@ -529,3 +529,73 @@ html:not(.dark) .shiki code[class="language-text"] span {
 .slidev-layout pre.shiki {
   padding-bottom: 5px !important; /* 下の余白を少し減らして、コードブロックの高さをコンパクトに */
 }
+
+
+
+
+/* ==========================================================================
+   Google Chart Table - Modern Flat Theme
+   ========================================================================== */
+/* テーブル全体の文字色と背景色を上書き（ここは維持） */
+.google-visualization-table-table {
+  color: #333333 !important;
+  background-color: #ffffff !important;
+}
+
+.google-visualization-table-td {
+  color: #333333 !important;
+  background-color: #ffffff !important;
+}
+
+/* ヘッダー：余計な余白や境界線の変更をせず、グラデーションだけを消す */
+.google-visualization-table-th {
+  background-image: none !important;     /* 👈 古くさいグラデーションを消去 */
+  background-color: #2c3e50 !important;  /* 👈 フラットな背景色にする */
+  color: #ffffff !important;             /* 👈 文字を白にする */
+}
+
+/* ヘッダーのホバー時もグラデーションを消す */
+.google-visualization-table-th:hover {
+  background-image: none !important;
+  background-color: #34495e !important;
+}
+
+
+/* ==========================================================================
+   定義リスト
+   ========================================================================== */
+
+/* 定義リスト全体のレイアウト */
+dl {
+  max-width: 850px;
+  margin: 1.5rem auto;
+  display: grid;
+  /* 左列は単語の幅にジャストフィット、右列は残りの幅をすべて使う */
+  grid-template-columns: max-content 1fr; 
+  row-gap: 1.2rem;
+  column-gap: 1.5rem; /* 単語と説明の間の自然な隙間（約24px） */
+}
+
+/* 単語（用語）：装飾を無くし、フォントの太さと色だけでスマートに表現 */
+dt {
+  font-family: 'Inter', 'Helvetica Neue', sans-serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #00e5ff; /* ソリッドなテックシアン */
+  letter-spacing: 0.05em;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: flex-start; /* 複数行の説明文に対しても上揃えにする */
+  padding-top: 0.2rem;     /* 説明文との高さ微調整 */
+}
+
+/* 説明文：無駄な余白を完全に削り、読みやすさを追求 */
+dd {
+  color: #cbd5e1; /* 黒背景に映えるライトグレー */
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0.2rem 0;
+}
+
