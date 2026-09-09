@@ -530,37 +530,6 @@ html:not(.dark) .shiki code[class="language-text"] span {
   padding-bottom: 5px !important; /* 下の余白を少し減らして、コードブロックの高さをコンパクトに */
 }
 
-
-
-
-/* ==========================================================================
-   Google Chart Table - Modern Flat Theme
-   ========================================================================== */
-/* テーブル全体の文字色と背景色を上書き（ここは維持） */
-.google-visualization-table-table {
-  color: #333333 !important;
-  background-color: #ffffff !important;
-}
-
-.google-visualization-table-td {
-  color: #333333 !important;
-  background-color: #ffffff !important;
-}
-
-/* ヘッダー：余計な余白や境界線の変更をせず、グラデーションだけを消す */
-.google-visualization-table-th {
-  background-image: none !important;     /* 👈 古くさいグラデーションを消去 */
-  background-color: #2c3e50 !important;  /* 👈 フラットな背景色にする */
-  color: #ffffff !important;             /* 👈 文字を白にする */
-}
-
-/* ヘッダーのホバー時もグラデーションを消す */
-.google-visualization-table-th:hover {
-  background-image: none !important;
-  background-color: #34495e !important;
-}
-
-
 /* ==========================================================================
    定義リスト
    ========================================================================== */
@@ -599,3 +568,8 @@ dd {
   padding: 0.2rem 0;
 }
 
+/* コードブロック内の合字（リガチャー）を無効化する */
+.slidev-code, code, pre {
+  font-variant-ligatures: none !important;
+  font-feature-settings: "liga" 0, "calt" 0 !important;
+}
