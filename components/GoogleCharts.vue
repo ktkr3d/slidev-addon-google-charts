@@ -1,5 +1,5 @@
 <template>
-  <div class="slidev-google-chart-wrapper" :style="{ width: width, height: height }">
+  <div class="slidev-addon-google-charts-wrapper" :style="{ width: width, height: height }">
     <GChart
       v-if="isReady"
       :type="type"
@@ -74,7 +74,7 @@ onSlideLeave(() => {
 
 <style scoped>
 /*
-.slidev-google-chart-wrapper {
+.slidev-addon-google-charts-wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -84,7 +84,7 @@ onSlideLeave(() => {
 
 /* グラフが表示される前のカクつきを防ぐため、親要素に高さを確保しておくと綺麗です */
 /*
-.slidev-google-chart-wrapper {
+.slidev-addon-google-charts-wrapper {
   min-height: 400px; 
   display: flex;
   align-items: center;
@@ -101,12 +101,12 @@ onSlideLeave(() => {
 
    /* テーブル全体の文字色と背景色を上書き（ここは維持） */
 
-.slidev-google-chart-wrapper :deep(.google-visualization-orgchart-node) {
+.slidev-addon-google-charts-wrapper :deep(.google-visualization-orgchart-node) {
   color: #333333 !important;
   background-color: #ffffff !important;
 }
 
-.slidev-google-chart-wrapper :deep(.google-visualization-orgchart-node-medium) {
+.slidev-addon-google-charts-wrapper :deep(.google-visualization-orgchart-node-medium) {
   color: #333333 !important;
   background-color: #ffffff !important;
 }
@@ -116,25 +116,25 @@ onSlideLeave(() => {
    ========================================================================== */
 
    /* テーブル全体の文字色と背景色を上書き（ここは維持） */
-.slidev-google-chart-wrapper :deep(.google-visualization-table-table) {
+.slidev-addon-google-charts-wrapper :deep(.google-visualization-table-table) {
   color: #333333 !important;
   background-color: #ffffff !important;
 }
 
-.slidev-google-chart-wrapper :deep(.google-visualization-table-td) {
+.slidev-addon-google-charts-wrapper :deep(.google-visualization-table-td) {
   color: #333333 !important;
   background-color: #ffffff !important;
 }
 
 /* ヘッダー：余計な余白や境界線の変更をせず、グラデーションだけを消す */
-.slidev-google-chart-wrapper :deep(.google-visualization-table-th) {
+.slidev-addon-google-charts-wrapper :deep(.google-visualization-table-th) {
   background-image: none !important;     /* 👈 古くさいグラデーションを消去 */
   background-color: #2c3e50 !important;  /* 👈 フラットな背景色にする */
   color: #ffffff !important;             /* 👈 文字を白にする */
 }
 
 /* ヘッダーのホバー時もグラデーションを消す */
-.slidev-google-chart-wrapper :deep(.google-visualization-table-th:hover) {
+.slidev-addon-google-charts-wrapper :deep(.google-visualization-table-th:hover) {
   background-image: none !important;
   background-color: #34495e !important;
 }
