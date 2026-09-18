@@ -138,4 +138,108 @@ onSlideLeave(() => {
   background-image: none !important;
   background-color: #34495e !important;
 }
+
+/* ==========================================================================
+   Google Chart Table - Tier List
+   ========================================================================== */
+
+/* color
+  rank
+    S+  #ff7f7f
+    S   #ffbf7f
+    A   #ffdf7f
+    B   #ffff7f
+    C   #bfff7f
+    D   #7fff7f
+  right #333
+  border  #000
+*/
+
+.slidev-addon-google-charts-wrapper :deep(.icon-container) {
+  background: #333;
+}
+
+.slidev-addon-google-charts-wrapper :deep(th:has(:is(.icon-container, .tier-splus))) {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 1px;
+  border-color: black !important;
+}
+
+.slidev-addon-google-charts-wrapper :deep(td:has(:is(.icon-container, .tier-s, .tier-a, .tier-b))) {
+  margin: 0 !important;
+  padding: 0 !important;
+  height: 1px;
+  border-color: black !important;
+}
+
+.slidev-addon-google-charts-wrapper :deep(img.tierlist) {
+  display: inline !important;
+  width: 15% !important;
+}
+
+/* S+ */
+.slidev-addon-google-charts-wrapper :deep(.tier-splus) {
+  background-color: #ff7f7f !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: black;
+}
+
+/* S */
+.slidev-addon-google-charts-wrapper :deep(.tier-s) {
+  background-color: #ffbf7f !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* A */
+.slidev-addon-google-charts-wrapper :deep(.tier-a) {
+  background-color: #ffdf7f !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* B */
+.slidev-addon-google-charts-wrapper :deep(.tier-b) {
+  background-color: #ffff7f !important;
+  text-align: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* C */
+.slidev-addon-google-charts-wrapper :deep(.tier-c) {
+  background-color: #bfff7f !important;
+  text-align: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* D */
+.slidev-addon-google-charts-wrapper :deep(.tier-d) {
+  background-color: #7fff7f !important;
+  text-align: center !important;
+  width: 100% !important;
+  height: 100% !important;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 </style>

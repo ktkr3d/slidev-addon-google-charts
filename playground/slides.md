@@ -1060,6 +1060,65 @@ routeAlias: Table
 
 ::right::
 
+<GoogleCharts 
+  type="Table"
+  :options="{
+    title: 'WoW Midnight DPS Tier List',
+        allowHtml: true, 
+        showRowNumber: false,
+        width: '100%',
+  }"
+  :data="[
+    [
+      '<div class=\'tier-splus\'>　　S+　　</div>', 
+      `<div class=\'icon-container\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/warrior_arms.png?raw=true\' class=\'tierlist\' title=\'Arms Warrior\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/mage_arcane.png?raw=true\' class=\'tierlist\' title=\'Arcane Mage\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/dk_unholy.png?raw=true\' class=\'tierlist\' title=\'Unholy Death Knight\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/shaman_elem.png?raw=true\' class=\'tierlist\' title=\'Elemental Shaman\'>
+      </div>`
+    ],
+    [
+      '<div class=\'tier-s\'>S</div>', 
+      `<div class=\'icon-container\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/warrior_fury.png?raw=true\' class=\'tierlist\' title=\'Fury Warrior\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/mage_fire.png?raw=true\' style=\'width: 13%; display: inline\' title=\'Fire Mage\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/warlock_demono.png?raw=true\' class=\'tierlist\' title=\'Demonology Warlock\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/druid_balance.png?raw=true\' class=\'tierlist\' title=\'Balance Druid\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/dh_havoc.png?raw=true\' class=\'tierlist\' title=\'Havoc Demon Hunter\'>
+      </div>`
+    ],
+    [
+      '<div class=\'tier-a\'>A</div>', 
+      `<div class=\'icon-container\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/mage_frost.png?raw=true\' class=\'tierlist\' title=\'Frost Mage\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/dk_frost.png?raw=true\' class=\'tierlist\' title=\'Frost Death Knight\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/shaman_enhancement.png?raw=true\' class=\'tierlist\' title=\'Enhancement Shaman\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/warlock_destru.png?raw=true\' class=\'tierlist\' title=\'Destruction Warlock\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/rogue_sub.png?raw=true\' class=\'tierlist\' title=\'Subtlety Rogue\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/rogue_assa.png?raw=true\' class=\'tierlist\' title=\'Assassination Rogue\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/hunter_mm.png?raw=true\' class=\'tierlist\' title=\'Marksmanship Hunter\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/hunter_bm.png?raw=true\' class=\'tierlist\' title=\'Beast Mastery Hunter\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/paladin_ret.png?raw=true\' class=\'tierlist\' title=\'Retribution Paladin\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/monk_ww.png?raw=true\' class=\'tierlist\' title=\'Windwalker Monk\'>
+        <img src=\'https://warcraft.wiki.gg/images/Classicon_demonhunter_void.png?673e44\' class=\'tierlist\' title=\'Devourer Demon Hunter\'>
+      </div>`
+    ],
+    [
+      '<div class=\'tier-b\'>B</div>', 
+      `<div class=\'icon-container\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/warlock_affli.png?raw=true\' class=\'tierlist\' title=\'Affliction Warlock\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/druid_feral.png?raw=true\' class=\'tierlist\' title=\'Feral Druid\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/rogue_outlaw.png?raw=true\' class=\'tierlist\' title=\'Outlaw Rogue\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/hunter_survival.png?raw=true\' class=\'tierlist\' title=\'Survival Hunter\'>
+        <img src=\'https://github.com/danetch/wowspecsemojis/blob/master/priest_shadow.png?raw=true\' class=\'tierlist\' title=\'Shadow Priest\'>
+        <img src=\'https://warcraft.wiki.gg/images/Classicon_evoker_devastation.png?b0028b\' class=\'tierlist\' title=\'Devastation Evoker\'>
+        <img src=\'https://warcraft.wiki.gg/images/Classicon_evoker_augmentation.png?cccbac\' class=\'tierlist\' title=\'Augmentation Evoker\'>
+      </div>`
+    ]
+  ]"
+/>
+
 ---
 # ==========================================
 # 📌 SLIDE : 25. TIMELINE
