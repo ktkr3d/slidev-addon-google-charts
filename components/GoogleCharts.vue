@@ -25,7 +25,7 @@ const props = defineProps({
   data: { type: Array, required: true },
   options: { type: Object, default: () => ({}) },
   width: { type: String, default: '100%' },
-  height: { type: String, default: '300px' }
+  height: { type: String, default: 'auto' }
 })
 
 const chartPackages = computed(() => {
@@ -213,4 +213,10 @@ onSlideLeave(() => {
   display: inline !important;
   width: 15% !important;
 }
+
+.slidev-addon-google-charts-wrapper {
+  background-color: #ffffff !important;
+}
+
 </style>
+
