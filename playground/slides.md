@@ -1136,7 +1136,8 @@ routeAlias: Timeline
 <GoogleCharts 
   type="Timeline"
   :options="{
-    width: '100%'
+    width: '100%',
+    height: 175
   }"
   :data="[
     [ 'President', 'Start', 'End' ],
@@ -1146,12 +1147,11 @@ routeAlias: Timeline
   ]"
 />
 
-::right::
-
 <GoogleCharts 
   type="Timeline"
   :options="{
-    width: '100%'
+    width: '100%',
+    height: 175
   }"
   :data="[
     [ 'Position', 'Name', 'Start', 'End' ],
@@ -1170,6 +1170,56 @@ routeAlias: Timeline
     [ 'Secretary of State', 'John Marshall', new Date(1800, 5, 13), new Date(1801, 2, 4)],
     [ 'Secretary of State', 'Levi Lincoln', new Date(1801, 2, 5), new Date(1801, 4, 1)],
     [ 'Secretary of State', 'James Madison', new Date(1801, 4, 2), new Date(1809, 2, 3)]
+  ]"
+/>
+
+::right::
+
+<GoogleCharts 
+  type="Timeline"
+  :options="{
+    timeline: {
+      showRowLabels: true
+    },
+    hAxis: {
+      format: 'HH:mm',
+    },
+    height: 214
+  }"
+  :data="[
+    [ 'Position', 'Name', 'Start', 'End' ],
+    [ 'PDT',    'Elusive Moonfish', new Date(0, 0, 0, 0, 0, 0), new Date(0, 0, 0, 6, 0, 0) ],
+    [ 'PDT',    'Golden Sunsoaker', new Date(0, 0, 0, 6, 0, 0), new Date(0, 0, 0, 18, 0, 0) ],
+    [ 'PDT',    'Elusive Moonfish', new Date(0, 0, 0, 18, 0, 0), new Date(0, 0, 0, 24, 0, 0) ],
+    [ 'JST',  'Golden Sunsoaker', new Date(0, 0, 0, 0, 0, 0), new Date(0, 0, 0, 10, 0, 0) ],
+    [ 'JST',  'Elusive Moonfish', new Date(0, 0, 0, 10, 0, 0), new Date(0, 0, 0, 22, 0, 0) ],
+    [ 'JST',  'Golden Sunsoaker', new Date(0, 0, 0, 22, 0, 0), new Date(0, 0, 0, 24, 0, 0) ],
+    [ '実績1',   'Golden Sunsoaker', new Date(0, 0, 0, 7, 17, 54), new Date(0, 0, 0, 7, 17, 55) ],
+    [ '実績1',   'Golden Sunsoaker', new Date(0, 0, 0, 7, 22, 27), new Date(0, 0, 0,  7, 22, 28) ],
+    [ '実績1',   'Golden Sunsoaker', new Date(0, 0, 0, 22, 48, 56), new Date(0, 0, 0, 22, 48, 57) ],
+    [ '実績2',   'Elusive Moonfish', new Date(0, 0, 0, 12, 22, 3), new Date(0, 0, 0, 12, 22, 4) ],
+  ]"
+/>
+
+<GoogleCharts 
+  type="Timeline"
+  :options="{
+    timeline: {
+      showRowLabels: true
+    },
+    hAxis: {
+      format: 'HH:mm',
+    },
+    height: 132
+  }"
+  :data="[
+    [ 'Position', 'Name', 'Start', 'End' ],
+    [ 'PST',    'Elusive Moonfish', new Date(0, 0, 0, 0, 0, 0), new Date(0, 0, 0, 6, 0, 0) ],
+    [ 'PST',    'Golden Sunsoaker', new Date(0, 0, 0, 6, 0, 0), new Date(0, 0, 0, 18, 0, 0) ],
+    [ 'PST',    'Elusive Moonfish', new Date(0, 0, 0, 18, 0, 0), new Date(0, 0, 0, 24, 0, 0) ],
+    [ 'JST',  'Golden Sunsoaker', new Date(0, 0, 0, 0, 0, 0), new Date(0, 0, 0, 11, 0, 0) ],
+    [ 'JST',  'Elusive Moonfish', new Date(0, 0, 0, 11, 0, 0), new Date(0, 0, 0, 23, 0, 0) ],
+    [ 'JST',  'Golden Sunsoaker', new Date(0, 0, 0, 23, 0, 0), new Date(0, 0, 0, 24, 0, 0) ],
   ]"
 />
 
